@@ -1,4 +1,5 @@
 # nust-generator-sitemap
+<<<<<<< HEAD
 Common sitemap generator for Nust, also support baidu search engine.
 
 ## Usage
@@ -44,3 +45,6 @@ module.exports = {
   }
 }
 ```
+=======
+Sitemap generator for Nust application
+>>>>>>> 94303dc7d1318d77d41db47242c45aede18a2495
