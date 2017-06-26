@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% for post in posts %}
+  <url>
+    <loc> {{ post.permalink | uriencode }}</loc>
+    <lastmod>{{ post.updatedISO }}</lastmod>
+    <data>
+        <display>
+        <title>{{ post.title }}</title>
+        <pubTime>{{ post.dateISO }}</pubTime>
+        {% if post.tags %}
+        {% for tag in post.tags %}
+        <tag>{{ tag.title }}</tag>
+        {% endfor %}
+        {% endif %}
+        <content>
+        {% if post.desc %}
+          {{ post.desc }}
+        {% elif post.excerpt %}
+          {{ post.excerpt }}
+        {% elif post.body %}
+          {{ post.body.substring(0, 140) }}
+        {% endif %}
+        </content>
+        {% if post.cate %}
+        <breadCrumb title="{{ post.cate.title }}" url="{{ post.cate.permalink | uriencode }}"/>
+        {% endif %}
+        </display>
+    </data>
+    </url>
+{% endfor %}
+</urlset>
